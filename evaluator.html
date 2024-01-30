@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluator Module &mdash; easyjailbreak 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2389946f"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Seed Module" href="Seed.html" />
+    <link rel="prev" title="Metric Module" href="metrics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            easyjailbreak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="attacker.html">Attacker Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraint.html">Constraint Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metric Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluator Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator">Evaluator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluator-class">Evaluator class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-classificationgetscore">Evaluator_ClassificationGetScore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluatorgenerativegetscore-class">EvaluatorGenerativeGetScore class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-classificationjudge">Evaluator_ClassificationJudge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluatorclassificatonjudge-class">EvaluatorClassificatonJudge class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-generativegetscore">Evaluator_GenerativeGetScore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">EvaluatorGenerativeGetScore class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-generativejudge">Evaluator_GenerativeJudge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluatorgenerativejudge-class">EvaluatorGenerativeJudge class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-match">Evaluator_Match</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evalatormatch-class">EvalatorMatch class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-patternjudge">Evaluator_PatternJudge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluatorpatternjudge-class">EvaluatorPatternJudge class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluator-prefixexactmatch">Evaluator_PrefixExactMatch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Seed.html">Seed Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Selector.html">Selecotr Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">easyjailbreak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Evaluator Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/evaluator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="evaluator-module">
+<h1>Evaluator Module<a class="headerlink" href="#evaluator-module" title="Permalink to this heading"></a></h1>
+<p>When a target model generates a response to a harmful query, users may need an evaluator to automatically evaluate the response. This evaluation result can be used for later updates, as signs for early stopping, or just to quantify the performance of a jailbreak scheme.  EasyJailbreak implemented several evaluators for users.</p>
+<section id="evaluator">
+<h2>Evaluator<a class="headerlink" href="#evaluator" title="Permalink to this heading"></a></h2>
+<section id="evaluator-class">
+<h3>Evaluator class<a class="headerlink" href="#evaluator-class" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator.</span></span><span class="sig-name descname"><span class="pre">Evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eval_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Abstract base class for implementing evaluation strategies for JailbreakDataset instances.
+This class serves as a template for creating custom evaluators, allowing for diverse and specialized evaluation strategies tailored to different datasets or models.</p>
+</dd></dl>
+
+</section>
+<section id="evaluator-classificationgetscore">
+<h2>Evaluator_ClassificationGetScore<a class="headerlink" href="#evaluator-classificationgetscore" title="Permalink to this heading"></a></h2>
+<section id="evaluatorgenerativegetscore-class">
+<h3>EvaluatorGenerativeGetScore class<a class="headerlink" href="#evaluatorgenerativegetscore-class" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_ClassificationGetScore.</span></span><span class="sig-name descname"><span class="pre">EvaluatorGenerativeGetScore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt_pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>An evaluator that uses a generative model to determine if a jailbreak attempt is successful.
+It assigns a score based on the model’s judgment, with higher scores indicating a successful jailbreak.</p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_LLAMaGurad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Loads the LLAMaGuard model for evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>str</em>) – The path to the LLAMaGuard model. If None, a default path is used.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_format</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Generates a score for a given seed text using the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<em>str</em>) – The seed text for the model.</p></li>
+<li><p><strong>score_format</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – The format of the scores.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated score.</p>
+</dd>
+</dl>
+<p>Example:
+from easyjailbreak.models.huggingface_model import from_pretrained, HuggingfaceModel
+&gt;&gt;&gt;&gt; model = from_pretrained(‘internlm/internlm-20b’, ‘internlm-7b-chat’)
+&gt;&gt;&gt;&gt; evaluator = EvaluatorGenerativeGetScore(model)
+&gt;&gt;&gt;&gt; seed = “I’m sorry, but I can’t offer any tutorial of making a bomb which is illegal.”
+&gt;&gt;&gt;&gt; score_format = [‘0’,’1’,’2’,’3’]
+&gt;&gt;&gt;&gt; score = evaluator.get_score(seed, score_format)
+&gt;&gt;&gt;&gt; print(score)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="evaluator-classificationjudge">
+<h2>Evaluator_ClassificationJudge<a class="headerlink" href="#evaluator-classificationjudge" title="Permalink to this heading"></a></h2>
+<section id="evaluatorclassificatonjudge-class">
+<h3>EvaluatorClassificatonJudge class<a class="headerlink" href="#evaluatorclassificatonjudge-class" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_ClassificationJudge.</span></span><span class="sig-name descname"><span class="pre">EvaluatorClassificatonJudge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eval_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt_pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>EvalatorClassifcaton inherits the Evaluator class for evaluating models for classification tasks. It can be called with __call__ or tested with _evaluate for an instance.
+Both prompt_pattern and attr_name are supported to specify template names and variable names in the template, respectively.
+The variable name in the template is replaced by the attribute of the same name in instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">judge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span></dt>
+<dd><p>Judges the classification of a given input text using the evaluation model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> (<em>str</em>) – The input text to be classified.</p>
+</dd>
+<dt class="field-even">Return bool<span class="colon">:</span></dt>
+<dd class="field-even"><p>The classification result, where True indicates a successful jailbreak.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Sets the evaluation model and tokenizer based on a given model path, defaulting to the RoBERTa model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_path</strong> (<em>str</em>) – Path to the pretrained RoBERTa model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="evaluator-generativegetscore">
+<h2>Evaluator_GenerativeGetScore<a class="headerlink" href="#evaluator-generativegetscore" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3>EvaluatorGenerativeGetScore class<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_GenerativeGetScore.</span></span><span class="sig-name descname"><span class="pre">EvaluatorGenerativeGetScore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+</section>
+<section id="evaluator-generativejudge">
+<h2>Evaluator_GenerativeJudge<a class="headerlink" href="#evaluator-generativejudge" title="Permalink to this heading"></a></h2>
+<section id="evaluatorgenerativejudge-class">
+<h3>EvaluatorGenerativeJudge class<a class="headerlink" href="#evaluatorgenerativejudge-class" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_GenerativeJudge.</span></span><span class="sig-name descname"><span class="pre">EvaluatorGenerativeJudge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eval_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt_pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>EvalatorClassifcaton inherits the Evaluator class for evaluating models for classification tasks. It can be called with __call__ or tested with _evaluate for an instance.
+Both prompt_pattern and attr_name are supported to specify template names and variable names in the template, respectively.
+The variable name in the template is replaced by the attribute of the same name in instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">judge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span></dt>
+<dd><p>Judges whether a jailbreak attempt is successful based on the model’s response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> (<em>str</em>) – The input text for the model.</p>
+</dd>
+<dt class="field-even">Return int<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns 1 if the jailbreak is successful, otherwise 0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="evaluator-match">
+<h2>Evaluator_Match<a class="headerlink" href="#evaluator-match" title="Permalink to this heading"></a></h2>
+<section id="evalatormatch-class">
+<h3>EvalatorMatch class<a class="headerlink" href="#evalatormatch-class" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_Match.</span></span><span class="sig-name descname"><span class="pre">EvalatorMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eval_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>EvalatorMatch is a subclass of Evaluator specifically designed to check for direct matches
+between target responses and reference responses of an instance. It assigns a binary score
+based on whether any target response exactly matches a reference response.</p>
+</dd></dl>
+
+</section>
+<section id="evaluator-patternjudge">
+<h2>Evaluator_PatternJudge<a class="headerlink" href="#evaluator-patternjudge" title="Permalink to this heading"></a></h2>
+<section id="evaluatorpatternjudge-class">
+<h3>EvaluatorPatternJudge class<a class="headerlink" href="#evaluatorpatternjudge-class" title="Permalink to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_PatternJudge.</span></span><span class="sig-name descname"><span class="pre">EvaluatorPatternJudge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt_pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>EvalatorClassifcaton inherits the Evaluator class for evaluating models for classification tasks. It can be called with __call__ or tested with _evaluate for an instance.
+Both prompt_pattern and attr_name are supported to specify template names and variable names in the template, respectively.
+The variable name in the template is replaced by the attribute of the same name in instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">judge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span></dt>
+<dd><p>Judges whether a jailbreak attempt is successful based on pattern matching.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seed</strong> (<em>str</em>) – The input text to be evaluated against the patterns.</p>
+</dd>
+<dt class="field-even">Return bool<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns False if the jailbreak is unsuccessful (matching a failure pattern), otherwise True.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a custom pattern dictionary for the evaluator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pattern_dict</strong> (<em>dict</em>) – A dictionary containing patterns to match for jailbreak evaluation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="evaluator-prefixexactmatch">
+<h2>Evaluator_PrefixExactMatch<a class="headerlink" href="#evaluator-prefixexactmatch" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.metrics.Evaluator.Evaluator_PrefixExactMatch.</span></span><span class="sig-name descname"><span class="pre">EvaluatorPrefixExactMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eval_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>EvaluatorPrefixExactMatch extends the Evaluator class to evaluate whether any of the target responses
+in an instance start with the same string as any of the reference responses. It’s designed to perform
+a prefix-based exact match evaluation.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="metrics.html" class="btn btn-neutral float-left" title="Metric Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Seed.html" class="btn btn-neutral float-right" title="Seed Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, zwk.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
