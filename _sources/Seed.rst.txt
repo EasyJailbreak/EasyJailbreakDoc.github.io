@@ -1,0 +1,28 @@
+Seed Module
+=============
+
+This section of documentation introduces the various submodules in easyjailbreak.seed. Seeds are initial jailbreak prompts that can fit most harmful queries. In former research, some researchers might partially change the seed while others generate whole new prompts based on the seeds and histories. EasyJailbreak provides users with three seed initialization methods:
+
+seed_base
+--------------------
+.. automodule:: easyjailbreak.seed.seed_base
+   :members:
+   :noindex:
+
+seed_llm
+--------------------
+.. automodule:: easyjailbreak.seed.seed_llm
+   :members:
+   :noindex:
+
+seed_random
+-----------------------
+.. automodule:: easyjailbreak.seed.seed_random
+   :members:
+   :noindex:
+
+seed_template
+------------------------------------------------------------
+.. automodule:: easyjailbreak.seed.seed_template
+   :members:
+   :noindex:

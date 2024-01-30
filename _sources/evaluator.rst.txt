@@ -1,0 +1,52 @@
+Evaluator Module
+================
+
+When a target model generates a response to a harmful query, users may need an evaluator to automatically evaluate the response. This evaluation result can be used for later updates, as signs for early stopping, or just to quantify the performance of a jailbreak scheme.  EasyJailbreak implemented several evaluators for users.
+
+Evaluator
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator
+   :members:
+   :noindex:
+
+Evaluator_ClassificationGetScore
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_ClassificationGetScore
+   :members:
+   :noindex:
+
+Evaluator_ClassificationJudge
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_ClassificationJudge
+   :members:
+   :noindex:
+
+Evaluator_GenerativeGetScore
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_GenerativeGetScore
+   :members:
+   :noindex:
+
+Evaluator_GenerativeJudge
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_GenerativeJudge
+   :members:
+   :noindex:
+
+Evaluator_Match
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_Match
+   :members:
+   :noindex:
+
+Evaluator_PatternJudge
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_PatternJudge
+   :members:
+   :noindex:
+
+Evaluator_PrefixExactMatch
+--------------------------------
+.. automodule:: easyjailbreak.metrics.Evaluator.Evaluator_PrefixExactMatch
+   :members:
+   :noindex:

@@ -1,0 +1,43 @@
+.. EasyJailbreak 文档
+
+Welcome to the EasyJailbreak Annotation documentation
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   attacker
+   constraint
+   datasets
+   metrics
+   evaluator
+   Seed
+   Selector
+
+Attacker
+--------
+.. include:: attacker.rst
+
+Constraint
+----------
+.. include:: constraint.rst
+
+Datasets
+--------
+.. include:: datasets.rst
+
+Metrics
+-------
+.. include:: metrics.rst
+
+Evaluator
+----------
+.. include:: evaluator.rst
+
+Seed
+----------
+.. include:: Seed.rst
+
+Selector
+----------
+.. include:: Selector.rst

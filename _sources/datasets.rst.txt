@@ -1,0 +1,16 @@
+Datasets Module
+=================
+
+Before users start jailbreak processes, users need to prepare and load harmful queries that models should not respond to. EasyJailbreak contains an Instance class to store these queries and other information that may be useful for the jailbreak processes, e.g. the responses from the target model. Meanwhile EasyJailbreak uses a JailbreakDataset class to gather these instances up and support batch operations.
+
+instance
+--------------
+.. automodule:: easyjailbreak.datasets.instance
+   :members:
+   :noindex:
+
+jailbreak_datasets
+-------------------
+.. automodule:: easyjailbreak.datasets.jailbreak_datasets
+   :members:
+   :noindex:

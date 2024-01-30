@@ -1,0 +1,16 @@
+Metric Module
+=============
+
+Part of this document introduces the easyjailbreak.metrics.Metric of each module, used to score for calculating the final result.
+
+metric_ASR
+----------
+.. automodule:: easyjailbreak.metrics.Metric.metric_ASR
+   :members:
+   :noindex:
+
+metric_perplexit
+----------------
+.. automodule:: easyjailbreak.metrics.Metric.metric_perplexit
+   :members:
+   :noindex:

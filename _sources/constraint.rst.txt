@@ -1,0 +1,22 @@
+Constraint Module
+=================
+
+As some LLMs will refute illegal queries by employing crafted rules, e.g. deny the queries that have a high perplexity, users can employ the same rules to abandon useless jailbreak instances. EasyJailbreak furnishs several kinds of filters for users to choose from.
+
+DeleteHarmLess
+--------------
+.. automodule:: easyjailbreak.constraint.DeleteHarmLess
+   :members:
+   :noindex:
+
+DeleteOffTopic
+----------------
+.. automodule:: easyjailbreak.constraint.DeleteOffTopic
+   :members:
+   :noindex:
+
+PerplexityConstraint
+--------------------
+.. automodule:: easyjailbreak.constraint.PerplexityConstraint
+   :members:
+   :noindex:

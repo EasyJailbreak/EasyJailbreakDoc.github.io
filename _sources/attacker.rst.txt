@@ -1,0 +1,70 @@
+Attacker Module
+===============
+
+This section of documentation describes the submodules in easyjailbreak.attacker. The class here is used to initialize a method proposed in the paper for model jailbreaking
+
+AutoDAN_Liu_2023
+----------------
+.. automodule:: easyjailbreak.attacker.AutoDAN_Liu_2023
+   :members:
+   :noindex:
+
+Cipher_Yuan_2023
+----------------
+.. automodule:: easyjailbreak.attacker.Cipher_Yuan_2023
+   :members:
+   :noindex:
+
+DeepInception_Li_2023
+---------------------
+.. automodule:: easyjailbreak.attacker.DeepInception_Li_2023
+   :members:
+   :noindex:
+
+GCG_Zou_2023
+-----------------
+.. automodule:: easyjailbreak.attacker.GCG_Zou_2023
+   :members:
+   :noindex:
+
+Gptfuzzer_yu_2023
+-----------------
+.. automodule:: easyjailbreak.attacker.Gptfuzzer_yu_2023
+   :members:
+   :noindex:
+
+ICA_wei_2023
+-----------------
+.. automodule:: easyjailbreak.attacker.ICA_wei_2023
+   :members:
+   :noindex:
+
+Jailbroken_wei_2023
+-------------------
+.. automodule:: easyjailbreak.attacker.Jailbroken_wei_2023
+   :members:
+   :noindex:
+
+Multilingual_Deng_2023
+-------------------------
+.. automodule:: easyjailbreak.attacker.Multilingual_Deng_2023
+   :members:
+   :noindex:
+
+PAIR_chao_2023
+-------------------
+.. automodule:: easyjailbreak.attacker.PAIR_chao_2023
+   :members:
+   :noindex:
+
+TAP_Mehrotra_2023
+-----------------
+.. automodule:: easyjailbreak.attacker.TAP_Mehrotra_2023
+   :members:
+   :noindex:
+
+ReNeLLM_ding_2023
+-----------------
+.. automodule:: easyjailbreak.attacker.ReNeLLM_ding_2023
+   :members:
+   :noindex:

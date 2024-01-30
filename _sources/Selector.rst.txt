@@ -1,0 +1,55 @@
+Selecotr Module
+=============
+
+
+This section of documentation introduces the various submodules in easyjailbreak.selector. The Selector module is used to select the most suitable sample from the dataset for mutation
+In some circumstances, a seed can exponentially generate innumerable jailbreak instances. Therefore, it is important to select jailbreak instances that have great potential for later processes, especially when compute resources are limited. EasyJailbreak offers several kinds of selectors for users to pick.
+
+
+selector
+----------------------------------------
+.. automodule:: easyjailbreak.selector.selector
+   :members:
+   :noindex:
+
+UCBSelectPolicy
+----------------------------------------
+.. automodule:: easyjailbreak.selector.UCBSelectPolicy
+   :members:
+   :noindex:
+
+SelectBasedOnScores
+----------------------------------------
+.. automodule:: easyjailbreak.selector.SelectBasedOnScores
+   :members:
+   :noindex:
+
+RoundRobinSelectPolicy
+----------------------------------------
+.. automodule:: easyjailbreak.selector.RoundRobinSelectPolicy
+   :members:
+   :noindex:
+
+RandomSelector
+----------------------------------------
+.. automodule:: easyjailbreak.selector.RandomSelector
+   :members:
+   :noindex:
+
+MCTSExploreSelectPolicy
+----------------------------------------
+.. automodule:: easyjailbreak.selector.MCTSExploreSelectPolicy
+   :members:
+   :noindex:
+
+EXP3SelectPolicy
+----------------------------------------
+.. automodule:: easyjailbreak.selector.EXP3SelectPolicy
+   :members:
+   :noindex:
+
+ReferenceLossSelector
+----------------------------------------
+.. automodule:: easyjailbreak.selector.ReferenceLossSelector
+   :members:
+   :noindex:
