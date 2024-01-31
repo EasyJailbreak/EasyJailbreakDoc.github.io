@@ -56,24 +56,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#selectpolicy-class">SelectPolicy class</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ucbselectpolicy">UCBSelectPolicy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ucbselectpolicy-class">UCBSelectPolicy class</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#ucbselectpolicy">UCBSelectPolicy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#selectbasedonscores">SelectBasedOnScores</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#roundrobinselectpolicy">RoundRobinSelectPolicy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#randomselector">RandomSelector</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#randomselectpolicy-class">RandomSelectPolicy class</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#mctsexploreselectpolicy">MCTSExploreSelectPolicy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mctsexploreselectpolicy-class">MCTSExploreSelectPolicy class</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#exp3selectpolicy">EXP3SelectPolicy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exp3selectpolicy-class">EXP3SelectPolicy class</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#randomselector">RandomSelector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mctsexploreselectpolicy">MCTSExploreSelectPolicy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exp3selectpolicy">EXP3SelectPolicy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#referencelossselector">ReferenceLossSelector</a></li>
 </ul>
 </li>
@@ -153,227 +141,24 @@ It provides a framework for implementing various selection strategies.</p>
 </section>
 <section id="ucbselectpolicy">
 <h2>UCBSelectPolicy<a class="headerlink" href="#ucbselectpolicy" title="Permalink to this heading"></a></h2>
-<section id="ucbselectpolicy-class">
-<h3>UCBSelectPolicy class<a class="headerlink" href="#ucbselectpolicy-class" title="Permalink to this heading"></a></h3>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.UCBSelectPolicy.</span></span><span class="sig-name descname"><span class="pre">UCBSelectPolicy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">explore_coeff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>A selection policy based on the Upper Confidence Bound (UCB) algorithm. This policy is designed
-to balance exploration and exploitation when selecting instances from a JailbreakDataset.
-It uses the UCB formula to select instances that either have high rewards or have not been explored much.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">JailbreakDataset</span></span></span></dt>
-<dd><p>Selects an instance from the dataset based on the UCB algorithm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return ~JailbreakDataset<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The selected JailbreakDataset from the dataset.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Updates the rewards for the last selected instance based on the success of the prompts.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Dataset</strong> (<em>~JailbreakDataset</em>) – The dataset containing prompts used for updating rewards.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="selectbasedonscores">
 <h2>SelectBasedOnScores<a class="headerlink" href="#selectbasedonscores" title="Permalink to this heading"></a></h2>
-<p>‘SelectBasedOnScores’, select those instances whose scores are high(scores are on the extent of jailbreaking),
-detail information can be found in the following paper.</p>
-<p>Paper title: Tree of Attacks: Jailbreaking Black-Box LLMs Automatically
-arXiv link: <a class="reference external" href="https://arxiv.org/abs/2312.02119">https://arxiv.org/abs/2312.02119</a>
-Source repository: <a class="reference external" href="https://github.com/RICommunity/TAP">https://github.com/RICommunity/TAP</a></p>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.SelectBasedOnScores.</span></span><span class="sig-name descname"><span class="pre">SelectBasedOnScores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree_width</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This class implements a selection policy based on the scores of instances in a JailbreakDataset.
-It selects a subset of instances with high scores, relevant for jailbreaking tasks.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Instance</span><span class="p"><span class="pre">]</span></span></span></span></dt>
-<dd><p>Selects a subset of instances from the dataset based on their scores.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dataset</strong> (<em>~JailbreakDataset</em>) – The dataset from which instances are to be selected.</p>
-</dd>
-<dt class="field-even">Return List[Instance]<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of selected instances with high evaluation scores.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="roundrobinselectpolicy">
 <h2>RoundRobinSelectPolicy<a class="headerlink" href="#roundrobinselectpolicy" title="Permalink to this heading"></a></h2>
-<p>RoundRobinSelectPolicy class</p>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.RoundRobinSelectPolicy.</span></span><span class="sig-name descname"><span class="pre">RoundRobinSelectPolicy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>A selection policy that selects instances from a JailbreakDataset in a round-robin manner.
-This policy iterates over the dataset, selecting each instance in turn, and then repeats the process.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">JailbreakDataset</span></span></span></dt>
-<dd><p>Selects the next instance in the dataset based on a round-robin approach and increments its visited count.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return ~JailbreakDataset<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The selected instance from the dataset.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Updates the selection index based on the length of the dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>prompt_nodes</strong> (<em>~JailbreakDataset</em>) – Not used in this implementation.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="randomselector">
 <h2>RandomSelector<a class="headerlink" href="#randomselector" title="Permalink to this heading"></a></h2>
-<section id="randomselectpolicy-class">
-<h3>RandomSelectPolicy class<a class="headerlink" href="#randomselectpolicy-class" title="Permalink to this heading"></a></h3>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.RandomSelector.</span></span><span class="sig-name descname"><span class="pre">RandomSelectPolicy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Datasets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>A selection policy that randomly selects an instance from a JailbreakDataset.
-It extends the SelectPolicy abstract base class, providing a concrete implementation
-for the random selection strategy.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">JailbreakDataset</span></span></span></dt>
-<dd><p>Selects an instance randomly from the dataset and increments its visited count.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return ~JailbreakDataset<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The randomly selected instance from the dataset.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="mctsexploreselectpolicy">
 <h2>MCTSExploreSelectPolicy<a class="headerlink" href="#mctsexploreselectpolicy" title="Permalink to this heading"></a></h2>
-<section id="mctsexploreselectpolicy-class">
-<h3>MCTSExploreSelectPolicy class<a class="headerlink" href="#mctsexploreselectpolicy-class" title="Permalink to this heading"></a></h3>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.MCTSExploreSelectPolicy.</span></span><span class="sig-name descname"><span class="pre">MCTSExploreSelectPolicy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inital_prompt_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Questions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This class implements a selection policy based on the Monte Carlo Tree Search (MCTS) algorithm.
-It is designed to explore and exploit a dataset of instances for effective jailbreaking of LLMs.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Instance</span></span></span></dt>
-<dd><p>Selects an instance from the dataset using MCTS algorithm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return ~JailbreakDataset<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The selected instance from the dataset.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Updates the weights of nodes in the MCTS tree based on their performance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>prompt_nodes</strong> (<em>~JailbreakDataset</em>) – Dataset of prompt nodes to update.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="exp3selectpolicy">
 <h2>EXP3SelectPolicy<a class="headerlink" href="#exp3selectpolicy" title="Permalink to this heading"></a></h2>
-<section id="exp3selectpolicy-class">
-<h3>EXP3SelectPolicy class<a class="headerlink" href="#exp3selectpolicy-class" title="Permalink to this heading"></a></h3>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.EXP3SelectPolicy.</span></span><span class="sig-name descname"><span class="pre">EXP3SelectPolicy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>A selection policy based on the Exponential-weight algorithm for Exploration and Exploitation (EXP3).
-This policy is designed for environments with adversarial contexts, balancing between exploring new instances
-and exploiting known rewards in a JailbreakDataset.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">initial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Initializes or resets the weights and probabilities for each instance in the dataset.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Instance</span></span></span></dt>
-<dd><p>Selects an instance from the dataset based on the EXP3 algorithm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return ~JailbreakDataset<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The selected instance from the dataset.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JailbreakDataset</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Updates the weights of the last chosen instance based on the success of the prompts.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>prompt_nodes</strong> (<em>~JailbreakDataset</em>) – The dataset containing prompts used for updating weights.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="referencelossselector">
 <h2>ReferenceLossSelector<a class="headerlink" href="#referencelossselector" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyjailbreak.selector.ReferenceLossSelector.</span></span><span class="sig-name descname"><span class="pre">ReferenceLossSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">WhiteBoxModelBase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_universal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This class implements a selection policy based on the reference loss. It selects instances from a set of parents
-based on the minimum loss calculated on their reference target, discarding others.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">JailbreakDataset</span></span></span></dt>
-<dd><p>Selects instances from the dataset based on the calculated reference loss.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dataset</strong> (<em>~JailbreakDataset</em>) – The dataset from which instances are to be selected.</p>
-</dd>
-<dt class="field-even">Return ~JailbreakDataset<span class="colon">:</span></dt>
-<dd class="field-even"><p>A new dataset containing selected instances with minimum reference loss.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 </section>
 
